@@ -4,11 +4,13 @@ python:
 
 install:
   - python3 -m pip install -r requirements.txt
-  #- python3 -m pip install --user --upgrade setuptools wheel
 
 script:
   - cd "${TRAVIS_BUILD_DIR}/"
   - python3 setup.py sdist bdist_wheel
-  - python3 -m twine upload --verbose --repository-url https://upload.pypi.org/legacy/ dist/*
-    -u __token__ -p "$PIPI_TOKEN" -r .pypirc
 
+deploy:
+  provider: pypi
+  username: "__token__"
+  password: "$PIPI_TOKEN"
+  skip_existing: true
