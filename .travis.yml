@@ -12,5 +12,5 @@ script:
   - echo "  username = __token__" >> "$HOME/.pypirc"
   - echo "  password = $PIPI_TOKEN" >> "$HOME/.pypirc"
   - python3 setup.py sdist bdist_wheel
-  - python3 -m twine upload --repository testpypi dist/*
-  
+  - python3 -m twine upload --repository mypdns dist/*
+
