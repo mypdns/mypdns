@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="Spirillen",
+    name="mypdns",
     version="0.0.1.dev",
     author="spirillen",
     author_email="$PIPI_EMAIL",
@@ -13,7 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://www.mypdns.org/",
     project_urls={
-        'Tracker': 'https://www.mypdns.org/',
+        'Tracker': 'https://www.mypdns.org/tag/matrix/',
         'Source': 'https://github.com/pypa/sampleproject/',
         },
     packages=setuptools.find_packages(),

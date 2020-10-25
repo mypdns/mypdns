@@ -3,14 +3,11 @@ python:
   - "3.8"
 
 install:
-  - pip install -r requirements.txt
+  - python3 -m pip install -r requirements.txt
   #- python3 -m pip install --user --upgrade setuptools wheel
 
 script:
   - cd "${TRAVIS_BUILD_DIR}/"
-  - echo "[pypi]" > "$HOME/.pypirc"
-  - echo "  username = __token__" >> "$HOME/.pypirc"
-  - echo "  password = $PIPI_TOKEN" >> "$HOME/.pypirc"
   - python3 setup.py sdist bdist_wheel
   - python3 -m twine upload --repository mypdns dist/*
 
