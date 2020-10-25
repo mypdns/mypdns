@@ -7,7 +7,7 @@ setuptools.setup(
     name="mypdns",
     version="0.0.1.dev2",
     author="spirillen",
-    author_email="$PIPI_EMAIL",
+    author_email="pdns@protonmail.com",
     description="Name space reservation",
     long_description=long_description,
     long_description_content_type="text/markdown",
