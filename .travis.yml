@@ -13,7 +13,7 @@ deploy:
   provider: pypi
   username: "__token__"
   password: "$PIPI_TOKEN"
-  #kip_existing: true
+  skip_existing: true
 
 after_script:
   - rm -fr dists/

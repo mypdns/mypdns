@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="mypdns",
-    version="0.0.1.dev3",
+    version="0.0.1.dev4",
     author="spirillen",
     author_email="pdns@protonmail.com",
     description="Name space reservation",
