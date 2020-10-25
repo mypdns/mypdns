@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="mypdns",
-    version="0.0.1.dev1",
+    version="0.0.1.dev2",
     author="spirillen",
     author_email="$PIPI_EMAIL",
     description="Name space reservation",

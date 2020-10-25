@@ -13,4 +13,4 @@ deploy:
   provider: pypi
   username: "__token__"
   password: "$PIPI_TOKEN"
-  skip_existing: true
+  #kip_existing: true
