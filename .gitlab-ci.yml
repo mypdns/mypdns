@@ -1,29 +1,15 @@
 image: python:latest
 
 before_script:
-   - pip install twine
-   - python setup.py sdist
+   - pip install -U pip
+   - python3 -m pip install -r requirements.txt
 
-deploy_staging:
+deploy:
   stage: deploy
   variables:
-    TWINE_USERNAME: "__token__"
-    TWINE_PASSWORD: "$PIPI_TOKEN"
+    provider: pypi
+    username: "__token__"
+    password: "$PIPI_TOKEN"
+    skip_existing: true
   script:
-    - twine upload --repository-url $PYPRI_REPOSITORY_URL dist/*
-  except:
-    - tags
-
-deploy_production:
-  stage: deploy
-  variables:
-    TWINE_USERNAME: "__token__"
-    TWINE_PASSWORD: "$PIPI_TOKEN"
-  script:
-    - twine upload dist/*
-  only:
-    - tags
-
-#    username: "__token__"
-#    password: "$PIPI_TOKEN"
-
+    - python3 setup.py sdist bdist_wheel
