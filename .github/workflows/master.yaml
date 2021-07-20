@@ -1,0 +1,54 @@
+name: My Privacy DNS Release
+
+on:
+  push:
+    branches:
+      - 'master'
+
+env:
+  GIT_NAME: '${{ secrets.GIT_NAME }}'
+  GIT_EMAIL: '${{ secrets.GIT_EMAIL }}'
+  GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
+jobs:
+  scheduler:
+    name: Trigger action
+    runs-on: '${{ matrix.os }}'
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python_version:
+          - '3.9.6'
+        os:
+          - ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@main #Obviously yet another american...
+        name: Clone repository
+        with:
+          token: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: Install requirements
+        run: |
+          python3 -m pip install -U pip
+          python3 -m pip install -r requirements.txt
+          pip install safety
+      
+      - name: Check the safety of our dependencies.
+        run: safety check
+      
+      - name: Build 📦
+        run: |
+          cd "${{ github.workspace }}"
+          python setup.py sdist bdist_wheel
+
+      - name: Check 📦
+        run: |
+          twine check dist/*
+
+      - name: Publish 📦 to PyPI
+        uses: pypa/gh-action-pypi-publish@master
+        with:
+          password: ${{ secrets.PYPI_DEV_API_TOKEN }}
+          skip_existing: true
