@@ -44,7 +44,7 @@ def get_long_description():  # pragma: no cover
 
 setuptools.setup(
     name="mypdns",
-    version="1.0.0",
+    version="1.0.1",
     author="spirillen",
     author_email="pdns@protonmail.com",
     description="Name space reservation",
