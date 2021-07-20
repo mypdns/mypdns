@@ -1,0 +1,15 @@
+image: python:latest
+
+before_script:
+   - pip install -U pip
+   - python3 -m pip install -r requirements.txt
+
+deploy:
+  stage: deploy
+  variables:
+    provider: pypi
+    username: "__token__"
+    password: "$PIPI_TOKEN"
+    skip_existing: true
+  script:
+    - python3 setup.py sdist bdist_wheel
