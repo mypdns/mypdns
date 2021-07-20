@@ -21,29 +21,7 @@ def _get_requirements():
     with open("requirements.txt") as file:
         requirements = file.read().splitlines()
 
-
-return requirements
-
-
-def _get_version():
-    """
-    This function will extract the version from PyFunceble/__init__.py
-    """
-
-    to_match = comp(r'VERSION\s=\s"(.*)"\n')
-
-    try:
-        extracted = to_match.findall(
-            open("PyFunceble/abstracts/package.py", encoding="utf-8").read()
-        )[0]
-    except FileNotFoundError:  # pragma: no cover
-        extracted = to_match.findall(
-            open("../PyFunceble/abstracts/package.py",
-                 encoding="utf-8").read()
-        )[0]
-
-
-return ".".join([x for x in extracted.split(".") if x.isdigit()])
+    return requirements
 
 
 def _get_long_description():
@@ -52,6 +30,9 @@ def _get_long_description():
     """
     with open("README.md", encoding="utf-8", "r") as fh:
         long_description = fh.read()
+
+# with open("README.md", "r") as fh:
+#     long_description = fh.read()
 
 
 setuptools.setup(
