@@ -24,12 +24,19 @@ def _get_requirements():
     return requirements
 
 
-def _get_long_description():
+def get_long_description():  # pragma: no cover
     """
-    Get the project description from README.md
+    This function return the long description.
     """
-    with open("README.md", encoding="utf-8", "r") as fh:
-        long_description = fh.read()
+
+    return open("README.md", encoding="utf-8").read()
+
+# def _get_long_description():
+#     """
+#     Get the project description from README.md
+#     """
+#     with open("README.md", encoding="utf-8", "r") as fh:
+#         long_description = fh.read()
 
 # with open("README.md", "r") as fh:
 #     long_description = fh.read()
@@ -41,7 +48,7 @@ setuptools.setup(
     author="spirillen",
     author_email="pdns@protonmail.com",
     description="Name space reservation",
-    long_description=long_description,
+    long_description=get_long_description(),
     long_description_content_type="text/markdown",
     url="https://mypdns.org/",
     project_urls={
