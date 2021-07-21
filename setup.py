@@ -38,7 +38,7 @@ if __name__ == "__main__":
     # setuptools.
     setup(
         name="mypdns",
-        version="1.0.1a1",
+        version="1.0.2b1",
         author="spirillen",
         author_email="pdns@protonmail.com",
         description="Name space reservation",
