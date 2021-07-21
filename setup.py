@@ -26,26 +26,6 @@ def _get_requirements():
     return requirements
 
 
-def get_version():
-    """
-    This function will extract the version from mypdns/__init__.py
-    """
-
-    to_match = comp(r'PROJECT_VERSION.*=\s+"(.*)"')
-
-    try:
-        extracted = to_match.findall(
-            open("mypdns/storage.py", encoding="utf-8").read()
-        )[0]
-
-    except FileNotFoundError:  # pragma: no cover
-        extracted = to_match.findall(
-            open("../mypdns/storage.py", encoding="utf-8").read()
-        )[0]
-
-    return extracted[: extracted.rfind(".")]
-
-
 def get_long_description():  # pragma: no cover
     """
     This function return the long description.
@@ -58,7 +38,7 @@ if __name__ == "__main__":
     # setuptools.
     setup(
         name="mypdns",
-        version=get_version(),
+        version="1.0.1a1",
         author="spirillen",
         author_email="pdns@protonmail.com",
         description="Name space reservation",
