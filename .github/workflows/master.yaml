@@ -3,7 +3,7 @@ name: My Privacy DNS Release
 on:
   push:
     branches:
-      - 'master'
+      - 'dev'
 
 env:
   GIT_NAME: '${{ secrets.GIT_NAME }}'

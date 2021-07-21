@@ -1,0 +1,9 @@
+name: mypdns
+dependencies:
+  - python=3.9.6
+  - pip
+  - pip:
+      - black
+      - wheel
+      - setuptools
+      - twine
