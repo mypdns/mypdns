@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'dev'
+      - 'master'
 
 env:
   GIT_NAME: '${{ secrets.GIT_NAME }}'
